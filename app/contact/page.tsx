@@ -1,7 +1,7 @@
 import React from "react";
-import { ArrowUpRight, Terminal, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
+import { OSWindow } from "@/components/ui/OSWindow";
 import { siteConfig } from "@/data/siteConfig";
 import { ContactForm, CopyEmailButton } from "@/components/contact/ContactForm";
 
@@ -11,131 +11,106 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <div className="w-full bg-[var(--bg-primary)]">
-      {/* 1. Header Context & Headline (Prompt 10) */}
-      <Section spacing="md" className="border-b border-[var(--border-subtle)] pb-12">
-        <Container>
-          <div className="max-w-4xl pb-8 border-b border-[var(--border-subtle)]">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 bg-[var(--accent)]" />
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] font-semibold">
-                INDEX // 04 • DIRECT INITIATION
-              </span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase font-sans text-[var(--text-primary)] leading-[0.94] mb-4">
-              HAVE AN IDEA?
-            </h1>
-
-            <p className="text-2xl sm:text-3xl text-[var(--text-secondary)] font-medium">
-              Let&apos;s make something real.
-            </p>
+    <div className="w-full bg-[var(--os-butter)] text-[var(--os-ink)] min-h-screen pt-20 md:pt-28 pb-24 transition-colors duration-300">
+      <Container>
+        {/* Header */}
+        <div className="pb-10 mb-12 border-b border-[var(--os-ink)]/20">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-[var(--os-ink)]" />
+            <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--os-ink)]/70">
+              ROOM 04 // CONTACT
+            </span>
           </div>
 
-          {/* Availability & Telemetry Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 font-mono text-xs">
-            <div className="p-4 border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-              <span className="text-[var(--text-muted)] uppercase block mb-1">AVAILABILITY STATUS</span>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[var(--text-primary)] font-bold">OPEN FOR Q2 / Q3 COMMISSIONS</span>
-              </div>
-            </div>
+          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-[var(--os-ink)] leading-[0.92]">
+            Have
+            <br />
+            An Idea?
+          </h1>
 
-            <div className="p-4 border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-              <span className="text-[var(--text-muted)] uppercase block mb-1">STUDIO LOCATION</span>
-              <span className="text-[var(--text-primary)] font-bold">DHAKA, BANGLADESH (UTC+6)</span>
-            </div>
+          <p className="mt-4 font-sans text-xl sm:text-2xl text-[var(--os-ink)]/90 font-medium">
+            Let&apos;s make something real.
+          </p>
 
-            <div className="p-4 border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-              <span className="text-[var(--text-muted)] uppercase block mb-1">DIRECT INQUIRIES</span>
-              <span className="text-[var(--accent)] font-bold">HELLO@YASINARAFAT.COM</span>
-            </div>
+          {/* Quick Contact Action Pills */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <CopyEmailButton />
+            <a
+              href="mailto:hello@yasinarafat.com"
+              className="btn-pill px-5 py-2.5 text-xs font-sans font-semibold tracking-wide uppercase inline-flex items-center gap-2"
+            >
+              <Mail className="w-4 h-4" />
+              <span>OPEN DIRECT EMAIL</span>
+            </a>
           </div>
-        </Container>
-      </Section>
+        </div>
 
-      {/* 2. Contact Grid & Form */}
-      <Section spacing="lg">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Direct Outreach & Social Spaces */}
-            <div className="lg:col-span-5 space-y-8">
-              <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] font-semibold block mb-2">
-                  DIRECT CONTACT
-                </span>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
-                  For brand architecture commissions, AI exploratory tools, design systems, or bespoke advisory:
-                </p>
-
-                <CopyEmailButton />
-              </div>
-
-              {/* Digital Channels */}
-              <div className="border-t border-[var(--border-subtle)] pt-6">
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold block mb-3">
-                  DIGITAL PRESENCE &amp; PROFILES
-                </span>
-                <div className="space-y-2 font-mono text-xs">
-                  {siteConfig.socials.map((soc) => (
-                    <a
-                      key={soc.name}
-                      href={soc.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="min-h-[44px] flex items-center justify-between p-3 border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-[var(--text-primary)] transition-colors group focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
-                    >
-                      <span className="text-[var(--text-primary)] font-medium">
-                        {soc.name}
-                      </span>
-                      <span className="text-[var(--text-muted)] group-hover:text-[var(--accent)] flex items-center gap-1">
-                        <span>{soc.handle}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="p-4 border border-[var(--border-subtle)] bg-[var(--bg-secondary)] font-mono text-xs text-[var(--text-muted)] flex items-start gap-2.5">
-                <Sparkles className="w-4 h-4 text-[var(--accent)] flex-shrink-0 mt-0.5" />
-                <p className="leading-relaxed">
-                  Fast response: Usually within 24–48 hours. Selective on projects to ensure total focus and zero compromise on craft.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column: Project Inquiry Interface */}
-            <div className="lg:col-span-7">
+        {/* Form and Details Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left: Interactive Form in OSWindow */}
+          <div className="lg:col-span-7">
+            <OSWindow
+              title="INQUIRY DISPATCH // YASIN OS"
+              subtitle="Direct Comm Channel"
+              surface="cream"
+              showDots
+              radius="2xl"
+              className="p-6 md:p-8"
+            >
               <ContactForm />
+            </OSWindow>
+          </div>
+
+          {/* Right: Studio Details & Socials */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-6 rounded-[24px] border border-[var(--os-ink)] bg-white shadow-xs">
+              <span className="font-sans text-xs font-bold uppercase tracking-wider text-[var(--os-ink)]/60 block mb-2">
+                AVAILABILITY
+              </span>
+              <div className="flex items-center gap-2 font-sans text-sm font-semibold">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span>OPEN FOR Q2 / Q3 2026 COMMISSIONS</span>
+              </div>
+              <p className="font-sans text-xs text-[var(--os-ink)]/80 mt-2 leading-relaxed">
+                Accepting select brand architecture, design systems, and creative technology collaborations.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-[24px] border border-[var(--os-ink)] bg-white shadow-xs">
+              <span className="font-sans text-xs font-bold uppercase tracking-wider text-[var(--os-ink)]/60 block mb-2">
+                STUDIO LOCATION
+              </span>
+              <div className="font-sans text-sm font-semibold text-[var(--os-ink)]">
+                DHAKA, BANGLADESH (UTC+6)
+              </div>
+              <p className="font-sans text-xs text-[var(--os-ink)]/80 mt-1">
+                Collaborating globally across Tokyo, Singapore, Zurich, and North America.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-[24px] border border-[var(--os-ink)] bg-white shadow-xs">
+              <span className="font-sans text-xs font-bold uppercase tracking-wider text-[var(--os-ink)]/60 block mb-3">
+                EXTERNAL ARCHIVES
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {siteConfig.socials.map((soc) => (
+                  <a
+                    key={soc.name}
+                    href={soc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-full border border-[var(--os-ink)] bg-[var(--os-cream)] text-xs font-sans font-medium text-[var(--os-ink)] hover:bg-[var(--os-ink)] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>{soc.name}</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </Container>
-      </Section>
-
-      {/* 3. Ending Footer Signature (Prompt 10) */}
-      <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)]/50 py-12">
-        <Container>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[var(--text-muted)]">
-            <div className="flex items-center gap-2">
-              <Terminal className="w-3.5 h-3.5 text-[var(--accent)]" />
-              <span className="font-bold text-[var(--text-primary)]">YASIN ARAFAT</span>
-              <span>{"//"}</span>
-              <span>DESIGN × AI × CODE</span>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <span>EST. 2011</span>
-              <span>•</span>
-              <span>© {currentYear} ALL RIGHTS RESERVED</span>
-            </div>
-          </div>
-        </Container>
-      </footer>
+        </div>
+      </Container>
     </div>
   );
 }

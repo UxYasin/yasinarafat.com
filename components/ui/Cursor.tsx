@@ -94,43 +94,38 @@ export function Cursor() {
     switch (cursorMode) {
       case "project":
         return {
-          width: 72,
-          height: 72,
-          backgroundColor: "#0047FF",
-          borderColor: "#0047FF",
-          opacity: 0.95,
+          width: 56,
+          height: 56,
+          backgroundColor: "#111111",
+          borderColor: "#111111",
+          color: "#FBE7CF",
+          opacity: 1,
         };
       case "lab":
         return {
-          width: 64,
-          height: 64,
+          width: 58,
+          height: 58,
           backgroundColor: "#111111",
-          borderColor: "#0047FF",
-          opacity: 0.9,
+          borderColor: "#111111",
+          color: "#B9E3D0",
+          opacity: 1,
         };
       case "link":
       case "button":
         return {
-          width: 44,
-          height: 44,
-          backgroundColor: "rgba(0, 71, 255, 0.12)",
-          borderColor: "#0047FF",
-          opacity: 1,
-        };
-      case "text":
-        return {
-          width: 4,
-          height: 24,
-          backgroundColor: "#0047FF",
-          borderColor: "#0047FF",
+          width: 36,
+          height: 36,
+          backgroundColor: "rgba(17, 17, 17, 0.08)",
+          borderColor: "#111111",
+          color: "#111111",
           opacity: 1,
         };
       default:
         return {
-          width: 28,
-          height: 28,
+          width: 14,
+          height: 14,
           backgroundColor: "transparent",
-          borderColor: "rgba(18, 18, 18, 0.25)",
+          borderColor: "rgba(17, 17, 17, 0.3)",
           opacity: 0.8,
         };
     }
@@ -143,10 +138,10 @@ export function Cursor() {
     >
       {/* Precision center dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[var(--text-primary)]"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[var(--os-ink)]"
         animate={{
-          x: mousePosition.x - 3,
-          y: mousePosition.y - 3,
+          x: mousePosition.x - 4,
+          y: mousePosition.y - 4,
           opacity: cursorMode === "project" || cursorMode === "lab" ? 0 : 1,
         }}
         transition={{ type: "spring", damping: 45, stiffness: 600, mass: 0.05 }}
@@ -154,13 +149,13 @@ export function Cursor() {
 
       {/* Trailing interactive ring / badge */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full flex items-center justify-center border text-white font-mono text-[9px] tracking-widest uppercase font-medium"
+        className="fixed top-0 left-0 rounded-full flex items-center justify-center border font-sans text-[10px] tracking-wider uppercase font-semibold"
         animate={{
-          x: mousePosition.x - (getCursorVariants().width || 28) / 2,
-          y: mousePosition.y - (getCursorVariants().height || 28) / 2,
+          x: mousePosition.x - (getCursorVariants().width || 14) / 2,
+          y: mousePosition.y - (getCursorVariants().height || 14) / 2,
           ...getCursorVariants(),
         }}
-        transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.2 }}
+        transition={{ type: "spring", damping: 28, stiffness: 320, mass: 0.18 }}
       >
         {(cursorMode === "project" || cursorMode === "lab") && (
           <span>{customText || (cursorMode === "project" ? "VIEW" : "TEST")}</span>

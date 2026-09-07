@@ -32,51 +32,47 @@ export function CaseStudyLayout({ project, nextProject }: CaseStudyLayoutProps) 
   };
 
   return (
-    <article className="w-full bg-[var(--bg-primary)]">
+    <article className="w-full bg-[var(--os-paper)] text-[var(--os-ink)] min-h-screen">
       {/* 1. Top Context Navigation Bar */}
-      <nav aria-label="Project context" className="border-b border-[var(--border-subtle)] bg-[var(--bg-secondary)]/40 py-3">
+      <nav aria-label="Project context" className="border-b border-[var(--os-ink)]/20 bg-[var(--os-cream)] py-3">
         <Container>
           <div className="flex items-center justify-between">
             <NextLink
               href="/work"
               data-cursor="link"
-              className="min-h-[44px] inline-flex items-center gap-2 py-2 px-1 font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+              className="btn-pill px-3.5 py-1.5 text-xs font-sans font-semibold inline-flex items-center gap-2"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>BACK TO WORK INDEX</span>
+              <span>BACK TO WORK</span>
             </NextLink>
 
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs text-[var(--text-muted)]">
-                ARCHIVE /{project.number}
+              <span className="font-sans text-xs text-[var(--os-ink)]/60 font-semibold">
+                ARCHIVE #{project.number}
               </span>
-              <Label variant="status" size="sm">
+              <span className="font-sans text-xs px-3 py-1 rounded-full border border-[var(--os-ink)] bg-white font-semibold">
                 {project.category}
-              </Label>
+              </span>
             </div>
           </div>
         </Container>
       </nav>
 
       {/* 2. Project Header & Metadata */}
-      <header className="pt-10 md:pt-16 pb-12 border-b border-[var(--border-subtle)]">
+      <header className="pt-12 md:pt-20 pb-12 border-b border-[var(--os-ink)]/20">
         <Container>
           <div className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs text-[var(--accent)] uppercase tracking-widest font-semibold">
-                CASE STUDY // {project.category}
-              </span>
-              <span className="text-[var(--border-strong)]">/</span>
-              <span className="font-mono text-xs text-[var(--text-muted)]">
-                CLIENT: {project.client} ({project.year})
-              </span>
+            <div className="flex items-center gap-3 mb-4 font-sans text-xs font-semibold text-[var(--os-ink)]/70 uppercase tracking-wider">
+              <span>CASE STUDY // {project.category}</span>
+              <span>•</span>
+              <span>{project.client} ({project.year})</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight uppercase font-sans text-[var(--text-primary)] leading-[0.94] mb-6">
+            <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-[var(--os-ink)] leading-[0.92] mb-6">
               {project.title}
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed font-normal max-w-4xl">
+            <p className="font-sans text-base sm:text-xl md:text-2xl text-[var(--os-ink)]/80 leading-relaxed max-w-3xl">
               {project.shortDescription}
             </p>
           </div>

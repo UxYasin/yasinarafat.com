@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Copy, Check, Send, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Label } from "@/components/ui/Label";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -65,31 +64,31 @@ Generated via YASIN OS // https://yasinarafat.com`;
   };
 
   return (
-    <div className="p-6 md:p-8 border border-[var(--border-subtle)] bg-[var(--surface-card)] shadow-xs">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold uppercase tracking-tight text-[var(--text-primary)]">
-          PROJECT INQUIRY
+    <div className="w-full">
+      <div className="flex items-center justify-between mb-2">
+        <h2 className="font-serif text-3xl md:text-4xl text-[var(--os-ink)]">
+          Direct Inquiry
         </h2>
-        <Label variant="outline" size="sm">
-          DIRECT CLIENT
-        </Label>
+        <span className="font-sans text-xs font-semibold px-3 py-1 rounded-full border border-[var(--os-ink)] bg-white text-[var(--os-ink)]">
+          DIRECT BRIEF
+        </span>
       </div>
 
-      <p className="font-mono text-xs text-[var(--text-muted)] mb-6">
+      <p className="font-sans text-xs sm:text-sm text-[var(--os-ink)]/70 mb-6">
         Fill in the outline below to launch your email client with a preformatted project brief.
       </p>
 
       {submitted ? (
-        <div className="py-8 px-6 text-center space-y-4 bg-[var(--bg-secondary)] border border-[var(--border-subtle)]">
-          <div className="w-12 h-12 rounded-full bg-[var(--accent)] text-white flex items-center justify-center mx-auto">
+        <div className="py-8 px-6 text-center space-y-4 rounded-[20px] bg-white border border-[var(--os-ink)]">
+          <div className="w-12 h-12 rounded-full bg-[var(--os-ink)] text-white flex items-center justify-center mx-auto">
             <Check className="w-6 h-6" />
           </div>
 
-          <h3 className="text-xl font-bold text-[var(--text-primary)] uppercase">
-            INQUIRY READY
+          <h3 className="font-serif text-2xl text-[var(--os-ink)]">
+            Inquiry Ready
           </h3>
 
-          <p className="font-mono text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-[var(--os-ink)]/80 max-w-md mx-auto leading-relaxed">
             Your default email application was opened with this inquiry. If your client didn&apos;t open automatically, copy the formatted brief below and email directly to <strong>hello@yasinarafat.com</strong>.
           </p>
 
@@ -116,7 +115,7 @@ Generated via YASIN OS // https://yasinarafat.com`;
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="contact-name" className="block font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-1.5 font-bold">
+              <label htmlFor="contact-name" className="block font-sans text-xs uppercase tracking-wider text-[var(--os-ink)] mb-1.5 font-bold">
                 YOUR NAME *
               </label>
               <input
@@ -133,17 +132,17 @@ Generated via YASIN OS // https://yasinarafat.com`;
                   if (errors.name) setErrors({ ...errors, name: "" });
                 }}
                 placeholder="e.g. Maya Lin"
-                className="w-full px-3.5 py-2.5 font-mono text-xs bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:outline-hidden focus:border-[var(--accent)] focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+                className="w-full px-4 py-3 font-sans text-sm rounded-xl bg-white border border-[var(--os-ink)] text-[var(--os-ink)] focus:outline-hidden focus-visible:outline-2 focus-visible:outline-[var(--os-ink)]"
               />
               {errors.name && (
-                <span id="contact-name-error" role="alert" className="font-mono text-[10px] text-red-500 block mt-1">
+                <span id="contact-name-error" role="alert" className="font-sans text-xs text-red-600 block mt-1">
                   {errors.name}
                 </span>
               )}
             </div>
 
             <div>
-              <label htmlFor="contact-email" className="block font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-1.5 font-bold">
+              <label htmlFor="contact-email" className="block font-sans text-xs uppercase tracking-wider text-[var(--os-ink)] mb-1.5 font-bold">
                 EMAIL ADDRESS *
               </label>
               <input
@@ -160,10 +159,10 @@ Generated via YASIN OS // https://yasinarafat.com`;
                   if (errors.email) setErrors({ ...errors, email: "" });
                 }}
                 placeholder="e.g. maya@frontier.com"
-                className="w-full px-3.5 py-2.5 font-mono text-xs bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:outline-hidden focus:border-[var(--accent)] focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+                className="w-full px-4 py-3 font-sans text-sm rounded-xl bg-white border border-[var(--os-ink)] text-[var(--os-ink)] focus:outline-hidden focus-visible:outline-2 focus-visible:outline-[var(--os-ink)]"
               />
               {errors.email && (
-                <span id="contact-email-error" role="alert" className="font-mono text-[10px] text-red-500 block mt-1">
+                <span id="contact-email-error" role="alert" className="font-sans text-xs text-red-600 block mt-1">
                   {errors.email}
                 </span>
               )}
@@ -172,7 +171,7 @@ Generated via YASIN OS // https://yasinarafat.com`;
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="contact-type" className="block font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-1.5 font-bold">
+              <label htmlFor="contact-type" className="block font-sans text-xs uppercase tracking-wider text-[var(--os-ink)] mb-1.5 font-bold">
                 PROJECT TYPE
               </label>
               <select
@@ -180,7 +179,7 @@ Generated via YASIN OS // https://yasinarafat.com`;
                 name="projectType"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full px-3.5 py-2.5 font-mono text-xs bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:outline-hidden focus:border-[var(--accent)] focus-visible:outline-2 focus-visible:outline-[var(--accent)] cursor-pointer"
+                className="w-full px-4 py-3 font-sans text-sm rounded-xl bg-white border border-[var(--os-ink)] text-[var(--os-ink)] focus:outline-hidden focus-visible:outline-2 focus-visible:outline-[var(--os-ink)] cursor-pointer"
               >
                 <option>Brand Identity &amp; Architecture</option>
                 <option>Logo Design &amp; Monogram</option>
@@ -192,7 +191,7 @@ Generated via YASIN OS // https://yasinarafat.com`;
             </div>
 
             <div>
-              <label htmlFor="contact-budget" className="block font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-1.5 font-bold">
+              <label htmlFor="contact-budget" className="block font-sans text-xs uppercase tracking-wider text-[var(--os-ink)] mb-1.5 font-bold">
                 ESTIMATED BUDGET
               </label>
               <select
@@ -200,7 +199,7 @@ Generated via YASIN OS // https://yasinarafat.com`;
                 name="budget"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className="w-full px-3.5 py-2.5 font-mono text-xs bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:outline-hidden focus:border-[var(--accent)] focus-visible:outline-2 focus-visible:outline-[var(--accent)] cursor-pointer"
+                className="w-full px-4 py-3 font-sans text-sm rounded-xl bg-white border border-[var(--os-ink)] text-[var(--os-ink)] focus:outline-hidden focus-visible:outline-2 focus-visible:outline-[var(--os-ink)] cursor-pointer"
               >
                 <option>&lt; $5,000</option>
                 <option>$5,000 - $10,000</option>
@@ -211,13 +210,13 @@ Generated via YASIN OS // https://yasinarafat.com`;
           </div>
 
           <div>
-            <label htmlFor="contact-message" className="block font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)] mb-1.5 font-bold">
+            <label htmlFor="contact-message" className="block font-sans text-xs uppercase tracking-wider text-[var(--os-ink)] mb-1.5 font-bold">
               PROJECT BRIEF / GOALS *
             </label>
             <textarea
               id="contact-message"
               name="message"
-              rows={5}
+              rows={4}
               required
               aria-required="true"
               aria-invalid={!!errors.message}
@@ -228,10 +227,10 @@ Generated via YASIN OS // https://yasinarafat.com`;
                 if (errors.message) setErrors({ ...errors, message: "" });
               }}
               placeholder="Tell me about what you are building, your timeline, and what success looks like..."
-              className="w-full px-3.5 py-2.5 font-mono text-xs bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:outline-hidden focus:border-[var(--accent)] focus-visible:outline-2 focus-visible:outline-[var(--accent)] resize-none"
+              className="w-full px-4 py-3 font-sans text-sm rounded-xl bg-white border border-[var(--os-ink)] text-[var(--os-ink)] focus:outline-hidden focus-visible:outline-2 focus-visible:outline-[var(--os-ink)] resize-none"
             />
             {errors.message && (
-              <span id="contact-message-error" role="alert" className="font-mono text-[10px] text-red-500 block mt-1">
+              <span id="contact-message-error" role="alert" className="font-sans text-xs text-red-600 block mt-1">
                 {errors.message}
               </span>
             )}
@@ -247,8 +246,8 @@ Generated via YASIN OS // https://yasinarafat.com`;
               LAUNCH INQUIRY
             </Button>
 
-            <span className="font-mono text-[11px] text-[var(--text-muted)] hidden sm:inline">
-              OPENS DEFAULT MAIL CLIENT
+            <span className="font-sans text-xs text-[var(--os-ink)]/60 hidden sm:inline">
+              OPENS DIRECT MAIL CLIENT
             </span>
           </div>
         </form>
@@ -267,11 +266,11 @@ export function CopyEmailButton() {
   };
 
   return (
-    <div className="flex items-center gap-2 p-3 border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-      <Mail className="w-4 h-4 text-[var(--accent)]" />
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--os-ink)] bg-white shadow-xs">
+      <Mail className="w-4 h-4 text-[var(--os-ink)]" />
       <a
         href="mailto:hello@yasinarafat.com"
-        className="font-mono text-sm font-bold text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors flex-1 min-h-[36px] flex items-center focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+        className="font-sans text-xs sm:text-sm font-semibold text-[var(--os-ink)] hover:underline"
       >
         hello@yasinarafat.com
       </a>
@@ -279,10 +278,9 @@ export function CopyEmailButton() {
         type="button"
         onClick={handleCopyEmail}
         aria-label="Copy direct email address to clipboard"
-        className="min-h-[36px] inline-flex items-center gap-1 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider border border-[var(--border-subtle)] bg-[var(--bg-secondary)] hover:border-[var(--text-primary)] cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+        className="ml-1 px-2.5 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider border border-[var(--os-ink)] bg-[var(--os-cream)] hover:bg-[var(--os-ink)] hover:text-white transition-colors cursor-pointer"
       >
-        {copiedEmail ? <Check className="w-3 h-3 text-[var(--accent)]" /> : <Copy className="w-3 h-3" />}
-        <span>{copiedEmail ? "COPIED" : "COPY"}</span>
+        {copiedEmail ? "COPIED" : "COPY"}
       </button>
     </div>
   );
