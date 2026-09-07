@@ -1,0 +1,29 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#F4F2EC"/>
+  
+  <!-- Stationery Spread Frame 1: Business Card -->
+  <g transform="translate(100, 160)">
+    <rect width="420" height="240" fill="#0E0F12" rx="2" stroke="#222" stroke-width="1"/>
+    <circle cx="50" cy="50" r="14" fill="#0047FF"/>
+    <text x="75" y="55" fill="#FAF9F5" font-family="sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5">AURORA</text>
+    <text x="50" y="160" fill="#8E8D88" font-family="monospace" font-size="10" letter-spacing="1">SYNTHETIC BIOLOGY RESEARCH</text>
+    <text x="50" y="180" fill="#E6E4DC" font-family="sans-serif" font-weight="600" font-size="13">Dr. Elena Rostova</text>
+    <text x="50" y="196" fill="#8E8D88" font-family="monospace" font-size="10">Principal Bio-Architect // labs@aurora.io</text>
+    <line x1="50" y1="215" x2="370" y2="215" stroke="#0047FF" stroke-width="2"/>
+  </g>
+
+  <!-- Frame 2: Monograph Cover -->
+  <g transform="translate(580, 80)">
+    <rect width="520" height="580" fill="#FAF9F5" stroke="#D8D6CE" stroke-width="1.5"/>
+    <rect x="40" y="40" width="440" height="500" fill="none" stroke="#E6E4DC" stroke-width="1"/>
+    <text x="60" y="80" fill="#0047FF" font-family="monospace" font-size="11" letter-spacing="2">SPECIFICATION MONOGRAPH 01</text>
+    <text x="60" y="140" fill="#111111" font-family="sans-serif" font-weight="900" font-size="34" letter-spacing="-1.5">CELLULAR<br/>INTELLIGENCE<br/>SYSTEMS.</text>
+    <line x1="60" y1="260" x2="460" y2="260" stroke="#111111" stroke-width="2"/>
+    <rect x="60" y="280" width="120" height="120" fill="#0047FF" fill-opacity="0.1" stroke="#0047FF" stroke-width="1"/>
+    <circle cx="120" cy="340" r="35" stroke="#0047FF" stroke-width="2" stroke-dasharray="4 2"/>
+    <text x="60" y="440" fill="#666666" font-family="monospace" font-size="11">PUBLISHED BY AURORA ARCHIVE // 2025</text>
+    <text x="60" y="460" fill="#999999" font-family="monospace" font-size="10">ISBN 978-1-98765-432-1</text>
+  </g>
+
+  <text x="100" y="660" fill="#8E8D88" font-family="monospace" font-size="12" letter-spacing="1">COLLATERAL SUITE // STARK CONTRAST &amp; UNCOATED STOCKS</text>
+</svg>

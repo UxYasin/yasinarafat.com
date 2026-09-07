@@ -1,0 +1,32 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#0C0D10"/>
+  
+  <!-- Coordinate Axis -->
+  <line x1="150" y1="375" x2="1050" y2="375" stroke="#1F222B" stroke-width="1.5"/>
+  <line x1="600" y1="100" x2="600" y2="650" stroke="#1F222B" stroke-width="1.5"/>
+
+  <!-- Golden Ratio Proportional Guides -->
+  <circle cx="600" cy="375" r="233" stroke="#252A36" stroke-width="1" stroke-dasharray="6 4"/>
+  <circle cx="600" cy="375" r="144" stroke="#252A36" stroke-width="1" stroke-dasharray="6 4"/>
+  <circle cx="600" cy="375" r="89" stroke="#0047FF" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Non-orientable Möbius Topological Loop (Nexus Mark) -->
+  <path d="M460 260 C530 180 670 180 740 260 C810 340 810 410 740 490 C670 570 530 570 460 490 C390 410 390 340 460 260 Z" 
+        stroke="#E6E4DC" stroke-width="14" stroke-linecap="round" fill="none"/>
+  
+  <path d="M460 260 L740 490" stroke="#0047FF" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Vector Control Points & Tangents -->
+  <circle cx="460" cy="260" r="5" fill="#0047FF"/>
+  <circle cx="740" cy="260" r="5" fill="#0047FF"/>
+  <circle cx="740" cy="490" r="5" fill="#0047FF"/>
+  <circle cx="460" cy="490" r="5" fill="#0047FF"/>
+
+  <text x="460" y="240" fill="#0047FF" font-family="monospace" font-size="11">NODE 01 [x:460, y:260]</text>
+  <text x="740" y="240" fill="#0047FF" font-family="monospace" font-size="11">NODE 02 [x:740, y:260]</text>
+  <text x="740" y="520" fill="#0047FF" font-family="monospace" font-size="11">NODE 03 [x:740, y:490]</text>
+  <text x="460" y="520" fill="#0047FF" font-family="monospace" font-size="11">NODE 04 [x:460, y:490]</text>
+
+  <text x="100" y="80" fill="#E6E4DC" font-family="monospace" font-size="13" font-weight="700">NEXUS GLOBAL CAPITAL // TOPOLOGICAL WORDMARK GEOMETRY</text>
+  <text x="100" y="105" fill="#8E8D88" font-family="monospace" font-size="11">FIBONACCI CURVE HARMONICS: [89 : 144 : 233] RATIO</text>
+</svg>

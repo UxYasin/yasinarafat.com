@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg-primary: #FBFBF9;
+  --bg-secondary: #F2F1EC;
+  --bg-tertiary: #EAE8E0;
+  --text-primary: #111111;
+  --text-secondary: #585650;
+  --text-muted: #8A8881;
+  --border-subtle: #E6E4DC;
+  --border-strong: #111111;
+  --accent: #0047FF;
+  --accent-hover: #0036CC;
+  --accent-foreground: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-card-hover: #F8F7F3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-primary: #0D0E10;
+    --bg-secondary: #151619;
+    --bg-tertiary: #1E2024;
+    --text-primary: #F4F4F2;
+    --text-secondary: #9E9D97;
+    --text-muted: #6E6D67;
+    --border-subtle: #24262B;
+    --border-strong: #F4F4F2;
+    --accent: #2A6BFF;
+    --accent-hover: #4D84FF;
+    --accent-foreground: #FFFFFF;
+    --surface-card: #131417;
+    --surface-card-hover: #191B20;
   }
 }
 
+/* Base resets & typography foundation */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Editorial grid lines & hairline dividers */
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+
+.border-strong {
+  border-color: var(--border-strong);
+}
+
+/* Custom interactive scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

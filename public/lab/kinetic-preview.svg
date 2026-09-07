@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#0E0F12"/>
+  <g transform="translate(400, 250)">
+    <!-- Kinetic wave typography deconstruction -->
+    <path d="M -250 -40 C -150 -120, -50 80, 50 -60 S 250 40, 300 -20" fill="none" stroke="#232733" stroke-width="40" stroke-linecap="round"/>
+    <path d="M -250 -40 C -150 -120, -50 80, 50 -60 S 250 40, 300 -20" fill="none" stroke="#0047FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M -250 -40 C -150 -120, -50 80, 50 -60 S 250 40, 300 -20" fill="none" stroke="#FAF9F5" stroke-width="2" stroke-dasharray="8 8"/>
+    <circle cx="50" cy="-60" r="12" fill="#0047FF"/>
+  </g>
+  <text x="50" y="60" font-family="monospace" font-size="11" fill="#0047FF" letter-spacing="2">KINETIC TYPES // GLSL BEZIER DYNAMICS</text>
+  <text x="50" y="450" font-family="monospace" font-size="10" fill="#6E7385" letter-spacing="1">120 FPS CONTRA-VARIABLE FONT ACCELERATION</text>
+</svg>

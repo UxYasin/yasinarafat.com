@@ -1,0 +1,48 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#0A0B0E"/>
+  
+  <!-- UI Window 1: Spatial Canvas -->
+  <g transform="translate(100, 100)">
+    <rect width="600" height="380" rx="6" fill="#12141A" stroke="#252836" stroke-width="1.5"/>
+    <rect x="0" y="0" width="600" height="36" fill="#181A22" rx="6"/>
+    <circle cx="20" cy="18" r="4" fill="#3B3E4F"/>
+    <circle cx="36" cy="18" r="4" fill="#3B3E4F"/>
+    <circle cx="52" cy="18" r="4" fill="#3B3E4F"/>
+    <text x="75" y="22" fill="#8E8D88" font-family="monospace" font-size="11">viewport_spatial.canvas</text>
+    
+    <!-- 3D Plane Outlines -->
+    <rect x="60" y="70" width="220" height="240" fill="none" stroke="#0047FF" stroke-width="2"/>
+    <text x="75" y="100" fill="#0047FF" font-family="monospace" font-size="10">DEPTH: Z -140px</text>
+    <rect x="180" y="120" width="260" height="200" fill="#1A1D27" stroke="#E6E4DC" stroke-width="1.5"/>
+    <text x="200" y="150" fill="#FAF9F5" font-family="sans-serif" font-weight="700" font-size="16">PHYSICAL TYPOGRAPHY</text>
+    <text x="200" y="175" fill="#8E8D88" font-family="monospace" font-size="11">4px Baseline Grid Locked</text>
+    <line x1="200" y1="200" x2="380" y2="200" stroke="#0047FF" stroke-width="2"/>
+  </g>
+
+  <!-- Side Token Inspector Panel -->
+  <g transform="translate(740, 100)">
+    <rect width="360" height="520" rx="6" fill="#12141A" stroke="#252836" stroke-width="1.5"/>
+    <text x="30" y="50" fill="#0047FF" font-family="monospace" font-size="12" font-weight="700">DESIGN TOKEN HIERARCHY</text>
+    <line x1="30" y1="70" x2="330" y2="70" stroke="#252836" stroke-width="1"/>
+    
+    <text x="30" y="110" fill="#FAF9F5" font-family="monospace" font-size="11">token.radius.sharp</text>
+    <text x="280" y="110" fill="#8E8D88" font-family="monospace" font-size="11">0px</text>
+    
+    <text x="30" y="150" fill="#FAF9F5" font-family="monospace" font-size="11">token.stroke.hairline</text>
+    <text x="280" y="150" fill="#8E8D88" font-family="monospace" font-size="11">1px</text>
+    
+    <text x="30" y="190" fill="#FAF9F5" font-family="monospace" font-size="11">token.latency.haptic</text>
+    <text x="280" y="190" fill="#0047FF" font-family="monospace" font-size="11">12ms</text>
+    
+    <text x="30" y="230" fill="#FAF9F5" font-family="monospace" font-size="11">token.elevation.layer</text>
+    <text x="280" y="230" fill="#8E8D88" font-family="monospace" font-size="11">3-plane</text>
+    
+    <rect x="30" y="270" width="300" height="180" fill="#0A0B0E" stroke="#252836" stroke-width="1"/>
+    <text x="45" y="300" fill="#666" font-family="monospace" font-size="10">// VIRTUAL PLANE SPEC</text>
+    <text x="45" y="325" fill="#0047FF" font-family="monospace" font-size="10">plane.opticalCenter = [0.5, 0.5];</text>
+    <text x="45" y="345" fill="#FAF9F5" font-family="monospace" font-size="10">plane.renderMode = "hairline_wire";</text>
+    <text x="45" y="365" fill="#8E8D88" font-family="monospace" font-size="10">plane.fpsTarget = 120;</text>
+  </g>
+
+  <text x="100" y="560" fill="#8E8D88" font-family="monospace" font-size="12" letter-spacing="1">FORMA // SPATIAL OS TOKEN SPECIFICATION ARCHITECTURE</text>
+</svg>

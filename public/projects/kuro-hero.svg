@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <rect width="1200" height="800" fill="#F4F1EA"/>
+  <!-- Subtly textured grid border -->
+  <rect x="80" y="80" width="1040" height="640" fill="none" stroke="#E2DDD2" stroke-width="1.5"/>
+  <rect x="100" y="100" width="1000" height="600" fill="none" stroke="#D3CCC0" stroke-width="0.5"/>
+  
+  <!-- Minimalist Japanese Bespoke Monogram -->
+  <g transform="translate(600, 400)">
+    <rect x="-140" y="-140" width="280" height="280" fill="#121212"/>
+    <!-- Folded leather seam cut-out in raw paper -->
+    <path d="M -70 -140 L 70 140 M -140 0 L 140 0" stroke="#F4F1EA" stroke-width="3"/>
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#C4A77D" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#C4A77D"/>
+    <!-- Precision brass stamp marks -->
+    <circle cx="-120" cy="-120" r="3" fill="#C4A77D"/>
+    <circle cx="120" cy="-120" r="3" fill="#C4A77D"/>
+    <circle cx="-120" cy="120" r="3" fill="#C4A77D"/>
+    <circle cx="120" cy="120" r="3" fill="#C4A77D"/>
+  </g>
+  
+  <text x="120" y="140" font-family="monospace" font-size="11" fill="#787367" letter-spacing="4">黒 // ARCHIVAL WORKSHOP TOKYO</text>
+  <text x="120" y="670" font-family="monospace" font-size="11" fill="#121212" letter-spacing="3">KURO ATELIER — BESPOKE LEATHER GOODS</text>
+  <text x="1080" y="670" text-anchor="end" font-family="monospace" font-size="11" fill="#787367" letter-spacing="2">EDITION 2024 / NO. 02</text>
+</svg>

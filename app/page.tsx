@@ -1,69 +1,156 @@
-import Image from "next/image";
+import React from "react";
+import NextLink from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+import { Label } from "@/components/ui/Label";
+import { Divider } from "@/components/ui/Divider";
+import { WorkIndex } from "@/components/portfolio/WorkIndex";
+import { Reveal } from "@/components/animations/Reveal";
+import { Hero } from "@/components/home/Hero";
+import { projects } from "@/data/projects";
+import { YasinMachine } from "@/components/lab/YasinMachine";
+import { labExperiments } from "@/data/labExperiments";
 
-export default function Home() {
+export default function HomePage() {
+  const featuredExperiments = labExperiments.slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="w-full">
+      {/* Editorial Hero Section (Prompt 04) */}
+      <Hero />
+
+      {/* Selected Work Section (Prompt 05) */}
+      <Section id="selected-work" spacing="lg">
+        <Container>
+          <WorkIndex
+            projects={projects}
+            title="SELECTED WORK"
+            subtitle="15 years of brand architecture, geometric identity marks, and experimental product design systems."
+            showFilters={false}
+          />
+        </Container>
+      </Section>
+
+      <Divider label="EXPERIMENTAL ENVIRONMENT" crosshairs />
+
+      {/* The Lab Preview Section (Prompts 07 & 08) */}
+      <Section spacing="lg" className="bg-[var(--bg-secondary)]/50 border-y border-[var(--border-subtle)]">
+        <Container>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[var(--border-subtle)]">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 bg-[var(--text-primary)]" />
+                <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-muted)]">
+                  INDEX // 02
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter uppercase font-sans text-[var(--text-primary)]">
+                THE LAB
+              </h2>
+              <p className="font-mono text-xs text-[var(--text-secondary)] mt-2">
+                Things I&apos;m building, breaking, testing and obsessing over.
+              </p>
+            </div>
+
+            <NextLink
+              href="/lab"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <span>EXPLORE ALL EXPERIMENTS</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </NextLink>
+          </div>
+
+          {/* Embedded Yasin Machine Ideator (Prompt 08) */}
+          <div className="mb-12">
+            <YasinMachine compact />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredExperiments.map((exp, idx) => (
+              <Reveal key={exp.id} delay={idx * 0.1}>
+                <NextLink
+                  href={`/lab/${exp.slug}`}
+                  data-cursor="lab"
+                  data-cursor-text="TEST"
+                  className="group block p-6 border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-[var(--text-primary)] transition-all flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <Label
+                        variant={exp.status === "LIVE" ? "accent" : "outline"}
+                        size="sm"
+                        dot={exp.status === "LIVE"}
+                      >
+                        {exp.status}
+                      </Label>
+                      <span className="font-mono text-xs text-[var(--text-muted)]">
+                        /{exp.number}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+                      {exp.name}
+                    </h3>
+
+                    <p className="font-mono text-xs text-[var(--text-muted)] mt-1">
+                      {exp.type}
+                    </p>
+
+                    <p className="text-xs text-[var(--text-secondary)] mt-3 leading-relaxed">
+                      {exp.shortDescription}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between font-mono text-[11px] text-[var(--text-muted)]">
+                    <div className="flex gap-1.5">
+                      {exp.technology.slice(0, 2).map((tech) => (
+                        <span key={tech}>[{tech}]</span>
+                      ))}
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--accent)] transition-transform" />
+                  </div>
+                </NextLink>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Signature Creative Direction Manifest */}
+      <Section spacing="lg">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="font-mono text-xs text-[var(--accent)] uppercase tracking-widest block mb-4">
+                THE MANIFESTO
+              </span>
+              <blockquote className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--text-primary)] leading-tight">
+                &ldquo;Great identity design is not ornament. It is an operating system for human perception.&rdquo;
+              </blockquote>
+              <p className="mt-4 text-sm md:text-base text-[var(--text-secondary)] max-w-2xl leading-relaxed">
+                Over 15 years, I designed for founders, enterprises, and institutions. Now, modern AI models give one person the building velocity of an entire engineering agency. I use that leverage to design and ship without compromise.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 border-l border-[var(--border-subtle)] pl-6 space-y-6">
+              <div>
+                <div className="text-3xl font-black font-sans text-[var(--text-primary)]">15+</div>
+                <div className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider">Years Design Experience</div>
+              </div>
+              <div>
+                <div className="text-3xl font-black font-sans text-[var(--accent)]">10K+</div>
+                <div className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider">Logo Concepts & Explorations</div>
+              </div>
+              <div>
+                <div className="text-3xl font-black font-sans text-[var(--text-primary)]">∞</div>
+                <div className="font-mono text-xs text-[var(--text-muted)] uppercase tracking-wider">Vibe-Coded Curiosity</div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }
