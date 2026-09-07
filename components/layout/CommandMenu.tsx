@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { navItems, siteConfig } from "@/data/siteConfig";
 import { machineIdeas } from "@/data/machineIdeas";
+import { projects } from "@/data/projects";
+import { labExperiments } from "@/data/labExperiments";
 
 interface CommandMenuProps {
   isOpen: boolean;
@@ -120,88 +122,191 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
 
           {/* Command Options List */}
           <div className="p-2 max-h-[60vh] overflow-y-auto space-y-1">
-            <div className="px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
-              Navigation
-            </div>
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                type="button"
-                onClick={() => handleNavigate(item.href)}
-                className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-[var(--accent)]">
-                    /{item.number}
-                  </span>
-                  <span className="text-sm font-semibold tracking-tight text-[var(--text-primary)]">
-                    {item.label}
-                  </span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
-              </button>
-            ))}
+            {/* Filter calculations */}
+            {(() => {
+              const q = query.trim().toLowerCase();
+              const matchedNav = navItems.filter(
+                (item) => item.label.toLowerCase().includes(q) || item.href.toLowerCase().includes(q)
+              );
+              const matchedProjects = projects.filter(
+                (p) => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
+              );
+              const matchedLabs = labExperiments.filter(
+                (l) => l.name.toLowerCase().includes(q) || l.type.toLowerCase().includes(q)
+              );
 
-            <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
-              Interactive Tools & Actions
-            </div>
+              const hasMatches = matchedNav.length > 0 || matchedProjects.length > 0 || matchedLabs.length > 0;
 
-            <button
-              type="button"
-              onClick={handleTriggerIdea}
-              className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <Sparkles className="w-4 h-4 text-[var(--accent)]" />
-                <span className="text-sm font-medium text-[var(--text-primary)]">
-                  Trigger Random Creative Idea (Yasin Machine)
-                </span>
-              </div>
-              <span className="font-mono text-[10px] text-[var(--text-muted)]">
-                IDEA
-              </span>
-            </button>
+              if (q && !hasMatches) {
+                return (
+                  <div className="p-6 text-center">
+                    <p className="font-mono text-xs text-[var(--text-muted)]">NO COMMANDS OR ARTIFACTS MATCHING &quot;{query}&quot;</p>
+                  </div>
+                );
+              }
 
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                {copiedEmail ? (
-                  <Check className="w-4 h-4 text-emerald-600" />
-                ) : (
-                  <Copy className="w-4 h-4 text-[var(--text-muted)]" />
-                )}
-                <span className="text-sm font-medium text-[var(--text-primary)]">
-                  {copiedEmail ? "Copied to clipboard!" : "Copy Inquiries Email"}
-                </span>
-              </div>
-              <span className="font-mono text-[10px] text-[var(--text-muted)]">
-                hello@yasinarafat.com
-              </span>
-            </button>
+              return (
+                <>
+                  {/* Navigation Group */}
+                  {matchedNav.length > 0 && (
+                    <>
+                      <div className="px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        Navigation {q && `(${matchedNav.length})`}
+                      </div>
+                      {matchedNav.map((item) => (
+                        <button
+                          key={item.href}
+                          type="button"
+                          onClick={() => handleNavigate(item.href)}
+                          className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs text-[var(--accent)]">
+                              /{item.number}
+                            </span>
+                            <span className="text-sm font-semibold tracking-tight text-[var(--text-primary)]">
+                              {item.label}
+                            </span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
+                        </button>
+                      ))}
+                    </>
+                  )}
 
-            <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
-              External Archives
-            </div>
-            {siteConfig.socials.slice(0, 3).map((soc) => (
-              <a
-                key={soc.name}
-                href={soc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group"
-              >
-                <div className="flex items-center gap-3">
-                  <Terminal className="w-4 h-4 text-[var(--text-muted)]" />
-                  <span className="text-sm text-[var(--text-primary)]">
-                    {soc.name}
-                  </span>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)]" />
-              </a>
-            ))}
+                  {/* Case Studies Group */}
+                  {matchedProjects.length > 0 && (
+                    <>
+                      <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        Case Studies {q && `(${matchedProjects.length})`}
+                      </div>
+                      {matchedProjects.map((proj) => (
+                        <button
+                          key={proj.slug}
+                          type="button"
+                          onClick={() => handleNavigate(`/work/${proj.slug}`)}
+                          className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs text-[var(--text-muted)]">
+                              #{proj.number}
+                            </span>
+                            <span className="text-sm font-medium text-[var(--text-primary)]">
+                              {proj.title}
+                            </span>
+                            <span className="font-mono text-[10px] text-[var(--accent)] border border-[var(--border-subtle)] px-1.5 py-0.5">
+                              {proj.category}
+                            </span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
+                        </button>
+                      ))}
+                    </>
+                  )}
+
+                  {/* Lab Experiments Group */}
+                  {matchedLabs.length > 0 && (
+                    <>
+                      <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        Lab Experiments {q && `(${matchedLabs.length})`}
+                      </div>
+                      {matchedLabs.map((lab) => (
+                        <button
+                          key={lab.slug}
+                          type="button"
+                          onClick={() => handleNavigate(`/lab/${lab.slug}`)}
+                          className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs text-[var(--text-muted)]">
+                              EXP
+                            </span>
+                            <span className="text-sm font-medium text-[var(--text-primary)]">
+                              {lab.name}
+                            </span>
+                            <span className="font-mono text-[10px] text-[var(--accent)] border border-[var(--border-subtle)] px-1.5 py-0.5">
+                              {lab.type}
+                            </span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all" />
+                        </button>
+                      ))}
+                    </>
+                  )}
+
+                  {/* Interactive Actions (shown when search is empty or matches action terms) */}
+                  {(!q || "idea random yasin machine email copy contact".includes(q)) && (
+                    <>
+                      <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        Interactive Tools & Actions
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={handleTriggerIdea}
+                        className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Sparkles className="w-4 h-4 text-[var(--accent)]" />
+                          <span className="text-sm font-medium text-[var(--text-primary)]">
+                            Trigger Random Creative Idea (Yasin Machine)
+                          </span>
+                        </div>
+                        <span className="font-mono text-[10px] text-[var(--text-muted)]">
+                          IDEA
+                        </span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleCopyEmail}
+                        className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          {copiedEmail ? (
+                            <Check className="w-4 h-4 text-emerald-600" />
+                          ) : (
+                            <Copy className="w-4 h-4 text-[var(--text-muted)]" />
+                          )}
+                          <span className="text-sm font-medium text-[var(--text-primary)]">
+                            {copiedEmail ? "Copied to clipboard!" : "Copy Inquiries Email"}
+                          </span>
+                        </div>
+                        <span className="font-mono text-[10px] text-[var(--text-muted)]">
+                          hello@yasinarafat.com
+                        </span>
+                      </button>
+                    </>
+                  )}
+
+                  {/* External Archives (shown when query is empty) */}
+                  {!q && (
+                    <>
+                      <div className="pt-2 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-[var(--text-muted)]">
+                        External Archives
+                      </div>
+                      {siteConfig.socials.slice(0, 3).map((soc) => (
+                        <a
+                          key={soc.name}
+                          href={soc.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-[var(--bg-secondary)] transition-colors group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <Terminal className="w-4 h-4 text-[var(--text-muted)]" />
+                            <span className="text-sm text-[var(--text-primary)]">
+                              {soc.name}
+                            </span>
+                          </div>
+                          <ExternalLink className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+                        </a>
+                      ))}
+                    </>
+                  )}
+                </>
+              );
+            })()}
           </div>
 
           {/* Footer Bar inside Command Menu */}
